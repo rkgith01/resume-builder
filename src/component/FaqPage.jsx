@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 const FaqPage = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
 
-  const handleToggle = (index) => {
+  const handleToggle = (index, event) => {
+    event.preventDefault();
     setOpenQuestion((prevIndex) => (prevIndex === index ? null : index));
   };
 
@@ -25,11 +26,12 @@ const FaqPage = () => {
               interface.
             </li>
             <li>
-              Just before you're done, you can choose the standard resume font styling
+              Just before you're done, you can choose the standard resume font
+              styling
             </li>
             <li>
-              Once you're done, Preview the resume and click on the "Print" button to generate your
-              PDF.
+              Once you're done, Preview the resume and click on the "Print"
+              button to generate your PDF.
             </li>
           </ol>
         </p>
@@ -47,12 +49,11 @@ const FaqPage = () => {
       ),
     },
     {
-      question: "How can I learn more about the features of the web app?",
+      question: "Can i choose any of the fonts?",
       answer: (
         <p className="font-semibold">
-          You can learn more about the features of our web app by exploring the
-          Features section on our homepage. Additionally, you can contact our
-          support team for further assistance.
+          Yes, you can choose any of the fonts available in the options list.
+          Currently there are four font available that you can choose from
         </p>
       ),
     },
@@ -60,10 +61,8 @@ const FaqPage = () => {
       question: "How can I get support as a developer?",
       answer: (
         <p className="font-semibold">
-          If you're a developer and need support, you can visit our Developer
-          Resources page for documentation, API reference, and code examples.
-          Additionally, you can reach out to our developer support team for
-          assistance.
+          You can get support as a developer by clicking the coffee icons ont
+          the top right hand side of the page and giving a star on github !
         </p>
       ),
     },
@@ -82,10 +81,9 @@ const FaqPage = () => {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className={`w-full border rounded-lg ${
-                openQuestion === index ? "open" : ""
-              }`}
-              onClick={() => handleToggle(index)}
+              open={openQuestion === index}
+              onClick={(e) => handleToggle(index, e)}
+              className="w-full border rounded-lg cursor-pointer"
             >
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-sky-600">
                 {faq.question}

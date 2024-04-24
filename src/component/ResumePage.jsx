@@ -271,7 +271,7 @@ const ResumePage = () => {
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-    font: selectedFont
+    font: selectedFont,
   });
   const handleFontChange = (e) => {
     setSelectedFont(e.target.value);
@@ -330,24 +330,26 @@ const ResumePage = () => {
         </Button>
 
         <select
-            className="bg-white font-serif dark:bg-gray-800 border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring focus:ring-blue-400"
-            value={selectedFont}
-            onChange={handleFontChange}
-          >
-            <option value="serif">Serif</option>
-            <option value="sans-serif">Sans-serif</option>
-            <option value="Cambria">Cambria</option>
-            <option value="Georgia">Georgia</option>
-          </select>
+          className="bg-white font-serif dark:bg-gray-800 border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring focus:ring-blue-400"
+          value={selectedFont}
+          onChange={handleFontChange}
+        >
+          <option value="serif">Serif</option>
+          <option value="sans-serif">Sans-serif</option>
+          <option value="Cambria">Cambria</option>
+          <option value="Georgia">Georgia</option>
+        </select>
 
         {/* Only show the template if previewVisible is true */}
         {previewVisible && (
           <div ref={componentRef}>
-            <Template resumeContent={resumeContent} selectedFont={selectedFont} />
+            <Template
+              resumeContent={resumeContent}
+              selectedFont={selectedFont}
+            />
           </div>
         )}
         <SmoothScroll />
-        
       </div>
 
       {/* Hidden printing view */}

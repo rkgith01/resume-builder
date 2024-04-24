@@ -29,7 +29,7 @@ let features = [
     title: "One click print",
     description: "Print your resume in just one click.",
     icon: BadgeCheck,
-    image: "/resume_2.png",
+    image: "/resume_4.png",
   },
 ];
 const settings = {
@@ -64,7 +64,7 @@ const Features = () => {
     <>
       <section className="mb-4 py-6" id="feature">
         <div className="container flex flex-col-reverse mx-auto lg:flex-row">
-          <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 text-gray-50 bg-sky-600">
+          <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 text-gray-50 bg-orange-500">
             {features.map((feature, index) => (
               <div key={index} className="flex space-x-2 sm:space-x-4">
                 <feature.icon className="w-10 h-10" />
@@ -85,7 +85,7 @@ const Features = () => {
                     <img
                       src={feature.image}
                       alt={feature.title}
-                      className="mx-auto w-full sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                      className="mx-auto w-full sm:max-w-lg lg:max-w-xl xl:max-w-2xl grayscale"
                     />
                   </div>
                 ))}
