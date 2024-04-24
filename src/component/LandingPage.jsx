@@ -10,7 +10,7 @@ import FaqPage from "./FaqPage";
 const LandingPage = () => {
   return (
     <Router>
-      <div>
+      <div className="font-mono">
         <Header />
         <main>
           <Routes>
